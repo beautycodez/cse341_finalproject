@@ -1,9 +1,15 @@
-const router = require('express').Router();
+const router = require("express").Router();
+const utilities = require("../utilities/index")
 
-router.use('/', require('./swagger'));
+// req.isAuthenticated is provided from the auth router
+router.get("/", utilities.handleErrors((req, res) => {
+  res.send(req.oidc.isAuthenticated() ? "Logged in" : "Logged out");
+}));
 
-router.use('/users', require("./users"));
-router.use('/books', require("./books"));
+router.use("/", require("./swagger"));
 
+router.use("/users", require('./users'));
+
+router.use("/books", require('./books'))
 
 module.exports = router;

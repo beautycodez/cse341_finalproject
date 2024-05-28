@@ -5,6 +5,7 @@ const dotenv = require('dotenv')
 dotenv.config();
 const cors = require('cors');
 const {auth} = require('express-openid-connect')
+const routesIndex = require('./routes/index')
 const app = express();
 
 //******************Midlewards ******************************/
@@ -39,11 +40,11 @@ const config = {
   };
   // auth router attaches /login, /logout, and /callback routes to the baseURL
   app.use(auth(config));
-  // req.isAuthenticated is provided from the auth router
-  app.get('/', (req, res) => {
-    res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
-  });
 
+//********************* ********************************** */
+//** routes********************************* */
+//****************************************************** */  
+app.use('/', routesIndex)
 
 //********************* ********************************** */
 //** connect with localhost 3000********************************* */
