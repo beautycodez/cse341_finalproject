@@ -5,10 +5,11 @@
     "description": "songs Api",
     "version": "1.0.0"
   },
-  "host": "cse341finalproject-40wi.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
-    "https"
+    "https",
+    "http"
   ],
   "paths": {
     "/": {
@@ -388,6 +389,192 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/library/library/order": {
+      "get": {
+        "tags": [
+          "Library"
+        ],
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/library/library/{id}": {
+      "get": {
+        "tags": [
+          "Library"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/library/": {
+      "post": {
+        "tags": [
+          "Library"
+        ],
+        "description": "Create a new library record",
+        "parameters": [
+          {"name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+              "properties": {
+                "bookId": {
+                  "type": "string",
+                  "example": "6653fa0fc571bec88aea9d27"
+                },
+                "userId": {
+                  "type": "string",
+                  "example": "66539d30b54465e6e7bec5ae"
+                },
+                "borrowDate": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "2024-05-01"
+                },
+                "returnDate": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "2024-05-15"
+                },
+                "status": {
+                  "type": "string",
+                  "example": "returned"
+                }
+              }
+          }
+        }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/library/{id}": {
+      "put": {
+        "tags": [
+          "Library"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {"name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+              "properties": {
+                "bookId": {
+                  "type": "string",
+                  "example": "6653fa0fc571bec88aea9d27"
+                },
+                "userId": {
+                  "type": "string",
+                  "example": "66539d30b54465e6e7bec5ae"
+                },
+                "borrowDate": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "2024-05-01"
+                },
+                "returnDate": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "2024-05-15"
+                },
+                "status": {
+                  "type": "string",
+                  "example": "returned"
+                }
+              }
+          }
+        }
+      ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Library"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/facility/facility": {
+      "get": {
+        "tags": [
+          "Facility"
+        ],
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/facility/library/status/{status}": {
+      "get": {
+        "tags": [
+          "Facility"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
           }
         }
       }

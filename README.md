@@ -12,4 +12,8 @@ npm install mongodb@3.6
 npm install swagger-ui-express
 npm install --save-dev swagger-autogen
 npm i express-validator
-
+npm install --save-dev jest
+npm i supertest --save-dev
+npm install --save-dev @shelf/jest-mongodb
+npm install mongodb-memory-server --save-dev
+npm install express-validator

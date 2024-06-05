@@ -10,6 +10,10 @@ router.use("/", require("./swagger"));
 
 router.use("/users", require('./users'));
 
-router.use("/books", require('./books'))
+router.use("/books", require('./books'));
+
+router.use("/library", require('./library'));
+
+router.use("/facility", require('./facility'))
 
 module.exports = router;

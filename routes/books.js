@@ -6,7 +6,7 @@ const {requiresAuth} = require('express-openid-connect')
 
 router.get("/:state",requiresAuth(), utilities.handleErrors(booksController.getAllByStatus));
 
-router.get("/byId/:id", utilities.handleErrors(booksController.getSingleBook))
+router.get("/byId/:id", requiresAuth(), utilities.handleErrors(booksController.getSingleBook))
 
 router.post(
   "/",
